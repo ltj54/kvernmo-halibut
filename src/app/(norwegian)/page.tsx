@@ -1,13 +1,13 @@
 import Image from "next/image";
-import InquiryDialog from "./inquiry-dialog";
-import BoatInfo from "./boat-info";
-import PhotoLightbox from "./photo-lightbox";
+import InquiryDialog from "../inquiry-dialog";
+import BoatInfo from "../boat-info";
+import PhotoLightbox from "../photo-lightbox";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const basePath = process.env.GITHUB_PAGES === "true" ? "/kvernmo-halibut" : "";
 
 export default function Home() {
   return (
-    <main id="top">
+      <main id="top" lang="nb">
       <div className="draft-note">Et uforpliktende forslag til nettside for Kvernmo Halibut</div>
 
       <header className="site-header">
@@ -18,6 +18,7 @@ export default function Home() {
           <a href="#joelma">Båten</a>
           <a href="#fjorden">Fjorden</a>
           <a href="#turer">Turer og leie</a>
+          <a className="language-link" href={`${basePath}/en/`} lang="en" hrefLang="en">English</a>
         </nav>
         <a className="header-button" href="#turer">Se mulighetene <span aria-hidden="true">↓</span></a>
       </header>
@@ -53,6 +54,7 @@ export default function Home() {
             <p className="section-label">Båten</p>
             <div className="boat-title-row"><h2 id="boat-title">Dette er Joelma</h2><BoatInfo /></div>
             <p>Joelma er en Nauticat 525 motorseiler. Det er god plass om bord, enten du vil på tur med Bjørne eller ønsker å leie båten på egen hånd. Bjørne kjenner både båten og fjordene her nord.</p>
+            <p className="winter-note"><strong>Også rigget for vinteren.</strong> Bjørne har bygget et vinterisolert overbygg med oppvarming, som erstatter den tidligere presenningen.</p>
             <dl className="boat-details">
               <div><dt>Båttype</dt><dd>Motorseiler</dd></div>
               <div><dt>Modell</dt><dd>Nauticat 525</dd></div>
