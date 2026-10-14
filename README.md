@@ -1,6 +1,6 @@
 # Kvernmo Halibut – uforpliktende nettsideutkast
 
-Selvstendig Next.js 16-prosjekt for et første visuelt konsept. Siden er ikke godkjent av Kvernmo Halibut og er ikke en aktiv booking- eller salgsflate. Ekte bilder, kontaktmetode, domene, turpriser og praktiske vilkår er ikke mottatt/avklart.
+Selvstendig Next.js 16-prosjekt for et første visuelt konsept. Siden er ikke godkjent av Kvernmo Halibut og er ikke en aktiv booking- eller salgsflate. Seks bilder og en veiledende prisindikasjon er mottatt og innarbeidet lokalt; offentlig bruk av bildene, kontaktmetode, domene, endelig pris og praktiske vilkår er ikke godkjent/avklart.
 
 ## Lokal oppstart
 
@@ -16,7 +16,7 @@ npm run dev
 ## Struktur
 
 - `src/app/`: konseptside, stil og metadata.
-- `public/`: illustrert plassholder. Den er ikke et foto av Bjørnes båt.
+- `public/images/`: nettoptimaliserte arbeidskopier av de seks bildene Bjørne sendte til konseptarbeidet. Originalene ligger ikke i prosjektet.
 - `KRAVSPESIFIKASJON.md`: lokal, intern oversikt over bekreftede fakta, forslag og åpne spørsmål; ikke med i offentlig Git-repository.
 - `AVTALEUTKAST_NETTSIDE_OG_DRIFT.md`: lokalt, internt avtaleutkast; ikke sendt, inngått eller publisert i Git-repository.
 - `.github/workflows/pages.yml`: bygger og publiserer ved bevisst push til `main`.
