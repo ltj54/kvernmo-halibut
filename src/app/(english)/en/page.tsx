@@ -4,6 +4,7 @@ import BoatInfo from "../../boat-info";
 import PhotoLightbox from "../../photo-lightbox";
 
 const basePath = process.env.GITHUB_PAGES === "true" ? "/kvernmo-halibut" : "";
+const anchors = { top: "#top", boat: "#joelma", fjord: "#fjorden", trips: "#turer" };
 
 export default function EnglishHome() {
   return (
@@ -12,15 +13,19 @@ export default function EnglishHome() {
 
       <header className="site-header">
         <a className="brand" href={`${basePath}/en/#top`} aria-label="Kvernmo Halibut, back to top">
-          <span>Kvernmo Halibut<small>Trips on Altafjord</small></span>
+          <span className="brand-name">Kvernmo Halibut</span>
+          <small>Trips on Altafjord</small>
         </a>
         <nav aria-label="Main menu">
-          <a href="#joelma">The boat</a>
-          <a href="#fjorden">The fjord</a>
-          <a href="#turer">Trips &amp; rental</a>
-          <a className="language-link" href={`${basePath}/`} lang="nb" hrefLang="nb">Norsk</a>
+          <a href={anchors.boat}>The boat</a>
+          <a href={anchors.fjord}>The fjord</a>
+          <a href={anchors.trips}>Trips &amp; rental</a>
+          <div className="language-switch" aria-label="Choose language">
+            <a href={`${basePath}/`} lang="nb" hrefLang="nb" aria-label="Norsk">NO</a>
+            <span aria-current="page" lang="en">EN</span>
+          </div>
         </nav>
-        <a className="header-button" href="#turer">Explore your options <span aria-hidden="true">↓</span></a>
+        <a className="header-button" href={anchors.trips}>Explore your options <span aria-hidden="true">↓</span></a>
       </header>
 
       <section className="hero" aria-labelledby="hero-title">
@@ -29,8 +34,8 @@ export default function EnglishHome() {
           <h1 id="hero-title">Explore Altafjord aboard Joelma</h1>
           <p>Come aboard Joelma, a Nauticat 525 motor sailer with nine berths. Join Bjørne as skipper, or ask about renting the boat without crew.</p>
           <div className="hero-links">
-            <a className="button button-dark" href="#joelma">Meet Joelma</a>
-            <a className="plain-link" href="#turer">See the trip options <span aria-hidden="true">→</span></a>
+            <a className="button button-dark" href={anchors.boat}>Meet Joelma</a>
+            <a className="plain-link" href={anchors.trips}>See the trip options <span aria-hidden="true">→</span></a>
           </div>
           <p className="hero-aside">Whales, orcas and northern lights may make an appearance. Nature decides, so sightings cannot be guaranteed.</p>
         </div>
@@ -54,7 +59,7 @@ export default function EnglishHome() {
             <p className="section-label">The boat</p>
             <div className="boat-title-row"><h2 id="boat-title">Meet Joelma</h2><BoatInfo language="en" /></div>
             <p>Joelma is a Nauticat 525 motor sailer with room to settle in, whether you are travelling with Bjørne or renting the boat on your own by arrangement. Bjørne knows both the boat and these northern fjords well.</p>
-            <p className="winter-note"><strong>Prepared for winter trips, too.</strong> Bjørne has built a winter-insulated enclosure with heating, replacing the boat&apos;s former canvas cover.</p>
+            <p className="winter-note">Joelma has an insulated, heated enclosure, designed for use during the colder months.</p>
             <dl className="boat-details">
               <div><dt>Boat type</dt><dd>Motor sailer</dd></div>
               <div><dt>Model</dt><dd>Nauticat 525</dd></div>
@@ -150,7 +155,7 @@ export default function EnglishHome() {
         <div className="section-inner contact-layout">
           <div><p className="section-label">Kvernmo Halibut · Western Finnmark</p><h2>Talk to Bjørne about a trip.</h2></div>
           <p>Tell him when you hope to travel, how many people are coming and whether you would like a skipper. The contact method is being finalized with Bjørne.</p>
-          <div className="footer-bottom"><span>Non-binding concept preview</span><span>Kvernmo Halibut · Org. no. 838 632 122</span><a href="#top">Back to top ↑</a></div>
+          <div className="footer-bottom"><span>Non-binding concept preview</span><span>Kvernmo Halibut · Org. no. 838 632 122</span><a href={anchors.top}>Back to top ↑</a></div>
         </div>
       </footer>
     </main>

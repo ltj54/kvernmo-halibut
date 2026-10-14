@@ -7,10 +7,15 @@ a:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
 figure{margin:0}
 .draft-note{padding:9px 16px;background:#294b50;color:#fff;font-size:11px;text-align:center}
 .site-header{position:sticky;top:0;z-index:20;width:100%;min-height:84px;padding:0 max(32px,calc((100% - 1240px)/2));margin:0 auto;display:flex;align-items:center;gap:36px;border-bottom:1px solid var(--line);background:var(--cream)}
-.brand{display:flex;flex-direction:column;gap:4px;margin-right:auto;font-size:18px;font-weight:700;letter-spacing:-.035em}
-.brand small{color:var(--muted);font-size:10px;font-weight:400;letter-spacing:.02em}
+.brand{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin-right:auto;font-size:18px;font-weight:700;letter-spacing:-.035em;line-height:1.1;white-space:nowrap}
+.brand-name{display:block}
+.brand small{display:block;color:var(--muted);font-size:10px;font-weight:400;letter-spacing:.02em;line-height:1.2}
 .site-header nav{display:flex;gap:27px;font-size:13px}
-.site-header nav .language-link{color:var(--blue);font-size:11px;font-weight:700;text-decoration:underline;text-decoration-color:#a9bcb7;text-underline-offset:4px}
+.language-switch{display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--sand);font-size:10px;font-weight:700;line-height:1}
+.language-switch a,.language-switch span{display:grid;min-width:27px;min-height:23px;place-items:center;border-radius:999px}
+.language-switch a{color:var(--muted)}
+.language-switch a:hover{background:rgba(255,255,255,.7);text-decoration:none!important}
+.language-switch span[aria-current="page"]{background:var(--blue);color:white}
 .site-header nav a:hover,.plain-link:hover,.footer-bottom a:hover{text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:4px}
 .header-button{padding:11px 16px;border-radius:4px;background:var(--yellow);font-size:12px;font-weight:700}
 .header-button span{margin-left:13px;color:var(--orange)}
