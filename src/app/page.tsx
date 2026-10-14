@@ -4,135 +4,128 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Home() {
   return (
-    <main>
-      <div className="draft-note"><span>Konseptutkast</span><span>Uforpliktende · ikke godkjent for publisering</span></div>
+    <main id="top">
+      <div className="draft-note">Et uforpliktende forslag til nettside for Kvernmo Halibut</div>
 
-      <header className="masthead wrap" id="top">
-        <a className="wordmark" href="#top" aria-label="Kvernmo Halibut, til toppen">
-          <span>Kvernmo<br />Halibut</span><i aria-hidden="true">KH</i>
+      <header className="site-header">
+        <a className="brand" href="#top" aria-label="Kvernmo Halibut, til toppen">
+          <span>Kvernmo Halibut<small>Turer på Altafjorden</small></span>
         </a>
-        <p className="masthead-place">Seilas i Vest-Finnmark<br /><span>70° nord · Finnmark</span></p>
         <nav aria-label="Hovedmeny">
-          <a href="#joelma">Joelma</a>
-          <a href="#ombord">Om bord</a>
-          <a href="#seilas">Seilas</a>
+          <a href="#joelma">Båten</a>
+          <a href="#fjorden">Fjorden</a>
+          <a href="#turer">Turer og leie</a>
         </nav>
-        <a className="masthead-contact" href="#kontakt">Ta kontakt <span aria-hidden="true">↗</span></a>
+        <a className="header-button" href="#turer">Se mulighetene <span aria-hidden="true">↓</span></a>
       </header>
 
-      <section className="cover wrap" aria-labelledby="cover-title">
-        <div className="cover-copy">
-          <p className="overline"><span className="overline-dot" /> LANGS FJORDENE I VEST-FINNMARK</p>
-          <h1 id="cover-title">Fjorden<br />er veien.</h1>
-          <p className="cover-intro">Bli med Bjørne ut på sjøen, eller lei Joelma for din egen ferd. En Nauticat 525 med ni køyeplasser – hjemme i farvannet her nord.</p>
-          <a className="quiet-link" href="#joelma">Møt båten <span aria-hidden="true">↓</span></a>
-          <span className="cover-index">VEST-FINNMARK<br />NORD-NORGE</span>
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="hero-copy">
+          <p className="location-label"><span aria-hidden="true">●</span> Vest-Finnmark</p>
+          <h1 id="hero-title">Har du lyst på en tur på fjorden?</h1>
+          <p>Bjørne leier ut Joelma, en Nauticat 525 med ni køyeplasser. Bli med ham som skipper, eller lei båten uten mannskap etter avtale.</p>
+          <div className="hero-links">
+            <a className="button button-dark" href="#joelma">Møt Joelma</a>
+            <a className="plain-link" href="#turer">Se turmulighetene <span aria-hidden="true">→</span></a>
+          </div>
+          <p className="hero-aside">Hval, spekkhogger og nordlys kan dukke opp. Det er naturen som bestemmer.</p>
         </div>
-        <figure className="cover-photo">
-          <Image src={`${basePath}/images/joelma-seilas.webp`} alt="Utsikt forover fra dekket på Joelma mens båten er underveis" fill priority sizes="(max-width: 760px) 100vw, 62vw" />
-          <figcaption><span>01</span> Ombord på Joelma</figcaption>
+        <figure className="hero-photo">
+          <Image src={`${basePath}/images/joelma-seilas.webp`} alt="Utsikten fra dekket på Joelma under seilas" fill priority sizes="(max-width: 760px) 100vw, 58vw" />
+          <figcaption>Ute på sjøen med Joelma</figcaption>
         </figure>
       </section>
 
-      <section className="field-note" aria-labelledby="field-note-title">
-        <div className="wrap field-note-inner">
-          <p className="margin-note">EN TUR<br />I EGET TEMPO</p>
-          <div className="field-note-copy">
-            <p className="overline">KYSTEN SETT FRA SJØEN</p>
-            <h2 id="field-note-title">Noen steder<br />må oppleves <em>underveis.</em></h2>
-            <p>Fjordene skifter med lyset og været. Her kan en dag by på bratte fjellsider, stille ankringsplasser – og, når sesongen og naturen vil det, hval, spekkhogger eller nordlys.</p>
-            <p className="caution">Dyreliv og nordlys er naturfenomener og kan ikke loves på en bestemt tur.</p>
-          </div>
-          <div className="field-note-rule" aria-hidden="true">—</div>
-        </div>
-      </section>
-
-      <section className="chart-note wrap" aria-labelledby="chart-title">
-        <div className="section-marker"><span>LOKALT</span><span>ALTAFJORDEN</span></div>
-        <div className="chart-copy">
-          <p className="overline">ET FARVANN MED MANGE INNSEILINGER</p>
-          <h2 id="chart-title">Mellom sundene.</h2>
-          <p>Langfjord, Stjernsund, Rognsund og Vargsund. Bjørne kjenner Altafjorden og områdene rundt Årøya. Her snakker han også om sild, hval og spekkhogger – møter med naturen som følger sesong og forhold.</p>
-          <p className="chart-disclaimer">Kartet viser farvannet, ikke en fast turplan. Seilas avtales etter vær og ønsker.</p>
-        </div>
-        <figure className="chart-photo">
-          <Image src={`${basePath}/images/altafjord-kart.webp`} alt="Elektronisk sjøkart over Altafjorden og sundene rundt Årøya" fill sizes="(max-width: 760px) 100vw, 60vw" />
-          <figcaption>Kart over Altafjorden og Årøya, sendt av Bjørne</figcaption>
-        </figure>
-        <div className="chart-names" aria-label="Sund i området">
-          <span>Langfjord</span><span>Stjernsund</span><span>Rognsund</span><span>Vargsund</span>
-        </div>
-      </section>
-
-      <section className="boat-story wrap" id="joelma" aria-labelledby="boat-title">
-        <div className="section-marker"><span>01</span><span>FARTØYET</span></div>
-        <div className="boat-story-main">
-          <div className="boat-story-heading">
-            <p className="overline">MØT JOELMA</p>
-            <h2 id="boat-title">Bygd for<br />livet om bord.</h2>
-            <p>Joelma er en Nauticat 525 motorseiler. Bjørne kjenner båten og fjordene hun seiler i. Turen kan gå med ham som skipper, eller med båten leid uten mannskap etter avtale.</p>
-          </div>
-          <figure className="boat-portrait">
-            <Image src={`${basePath}/images/joelma-korsfjord.webp`} alt="Joelma i Korsfjord, med høstfargede fjellsider i bakgrunnen" fill sizes="(max-width: 760px) 100vw, 58vw" />
-            <figcaption>Korsfjord <span>·</span> Joelma</figcaption>
+      <section className="boat-section" id="joelma" aria-labelledby="boat-title">
+        <div className="section-inner boat-layout">
+          <figure className="boat-photo">
+            <Image src={`${basePath}/images/joelma-korsfjord.webp`} alt="Joelma i Korsfjord" fill sizes="(max-width: 760px) 100vw, 52vw" />
+            <figcaption>Joelma i Korsfjord</figcaption>
           </figure>
-          <div className="boat-facts" aria-label="Fakta om Joelma">
-            <p><span>TYPE</span><strong>Motorseiler</strong></p>
-            <p><span>MODELL</span><strong>Nauticat 525</strong></p>
-            <p><span>KØYEPLASSER</span><strong>9</strong></p>
-            <p><span>LEIE</span><strong>Med eller uten skipper</strong></p>
+          <div className="boat-copy">
+            <p className="section-label">Båten</p>
+            <h2 id="boat-title">Dette er Joelma</h2>
+            <p>Joelma er en Nauticat 525 motorseiler. Det er god plass om bord, enten du vil på tur med Bjørne eller ønsker å leie båten på egen hånd. Bjørne kjenner både båten og fjordene her nord.</p>
+            <dl className="boat-details">
+              <div><dt>Båttype</dt><dd>Motorseiler</dd></div>
+              <div><dt>Modell</dt><dd>Nauticat 525</dd></div>
+              <div><dt>Køyeplasser</dt><dd>9</dd></div>
+              <div><dt>Leie</dt><dd>Med eller uten skipper</dd></div>
+            </dl>
+            <div className="price-box">
+              <span>Veiledende døgnpris</span>
+              <strong>I underkant av 10&nbsp;000 kr</strong>
+              <small>Prisen avhenger blant annet av hvor mange dere er. Endelig pris avtales med Bjørne.</small>
+            </div>
           </div>
-          <p className="price-note"><span>PRISPEKER · PER DØGN</span><strong>I underkant av 10 000 kr</strong><small>Veiledende. Avhenger blant annet av antall personer og hva som avtales.</small></p>
         </div>
       </section>
 
-      <section className="inside" id="ombord" aria-labelledby="inside-title">
-        <div className="wrap">
-          <div className="section-marker"><span>02</span><span>UNDER DEKK</span></div>
+      <section className="fjord-section" id="fjorden" aria-labelledby="fjord-title">
+        <div className="section-inner fjord-layout">
+          <div className="fjord-copy">
+            <p className="section-label">Rundt Altafjorden og Årøya</p>
+            <h2 id="fjord-title">Bjørne kjenner fjordene</h2>
+            <p>Langfjord, Stjernsund, Rognsund og Vargsund – dette er noen av farvannene Bjørne kjenner. Her finnes det sild, og i sesong kan man også være heldig å se hval eller spekkhogger.</p>
+            <p className="plain-note">Hvor turen går, kommer an på vær, forhold og hva dere har lyst til. Dyreliv kan ikke loves.</p>
+          </div>
+          <figure className="chart-photo">
+            <Image src={`${basePath}/images/altafjord-kart.webp`} alt="Sjøkart over Altafjorden og sundene rundt Årøya" fill sizes="(max-width: 760px) 100vw, 55vw" />
+            <figcaption>Kart over Altafjorden, sendt av Bjørne</figcaption>
+          </figure>
+          <div className="straits" aria-label="Sund i området">
+            <span>Langfjord</span><span>Stjernsund</span><span>Rognsund</span><span>Vargsund</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="inside-section" id="ombord" aria-labelledby="inside-title">
+        <div className="section-inner">
           <div className="inside-heading">
-            <h2 id="inside-title">Det er plass<br />til å bli.</h2>
-            <p>Når dagen på sjøen er over, er det godt å komme inn. Her er noen glimt fra Joelma.</p>
+            <div><p className="section-label">Litt om livet om bord</p><h2 id="inside-title">Kom inn og se deg rundt</h2></div>
+            <p>Her er byssa, oppholdsrommet og styreposisjonen under hardtoppen.</p>
           </div>
           <div className="inside-gallery">
             <figure className="inside-room">
-              <Image src={`${basePath}/images/joelma-oppholdsrom.webp`} alt="Oppholdsrommet om bord på Joelma" fill sizes="(max-width: 760px) 100vw, 50vw" />
-              <figcaption><span>01</span> Oppholdsrom</figcaption>
+              <Image src={`${basePath}/images/joelma-oppholdsrom.webp`} alt="Oppholdsrommet om bord på Joelma" fill sizes="(max-width: 760px) 100vw, 46vw" />
+              <figcaption>Oppholdsrom</figcaption>
             </figure>
-            <figure className="inside-galley">
-              <Image src={`${basePath}/images/joelma-bysse.webp`} alt="Byssa om bord på Joelma" fill sizes="(max-width: 760px) 100vw, 25vw" />
-              <figcaption><span>02</span> Bysse</figcaption>
+            <figure>
+              <Image src={`${basePath}/images/joelma-bysse.webp`} alt="Byssa om bord på Joelma" fill sizes="(max-width: 760px) 100vw, 27vw" />
+              <figcaption>Bysse</figcaption>
             </figure>
-            <figure className="inside-helm">
-              <Image src={`${basePath}/images/joelma-hardtop.webp`} alt="Rorplassen under hardtoppen på Joelma" fill sizes="(max-width: 760px) 100vw, 25vw" />
-              <figcaption><span>03</span> Rorplass</figcaption>
+            <figure>
+              <Image src={`${basePath}/images/joelma-hardtop.webp`} alt="Styreplassen under hardtoppen på Joelma" fill sizes="(max-width: 760px) 100vw, 27vw" />
+              <figcaption>Styreplass under hardtop</figcaption>
             </figure>
           </div>
         </div>
       </section>
 
-      <section className="ways wrap" id="seilas" aria-labelledby="ways-title">
-        <div className="section-marker"><span>03</span><span>TO MÅTER Å DRA</span></div>
-        <div className="ways-main">
-          <h2 id="ways-title">Hva slags tur<br />ser du for deg?</h2>
-          <div className="way-row">
-            <span className="way-number">A</span>
-            <div><h3>Med Bjørne som skipper</h3><p>Han kjenner både Joelma og farvannet. Rute og innhold avtales ut fra ønskene deres og forholdene på sjøen.</p></div>
-            <span className="way-arrow" aria-hidden="true">↗</span>
+      <section className="trips-section" id="turer" aria-labelledby="trips-title">
+        <div className="section-inner">
+          <p className="section-label">To måter å dra på</p>
+          <h2 id="trips-title">Hva passer for dere?</h2>
+          <div className="trip-options">
+            <article>
+              <span className="option-mark" aria-hidden="true">☺</span>
+              <div><h3>Tur med Bjørne som skipper</h3><p>Bjørne tar roret og viser dere farvannet. Sammen finner dere ut hvor turen skal gå, ut fra vær og ønsker.</p></div>
+            </article>
+            <article>
+              <span className="option-mark" aria-hidden="true">⌁</span>
+              <div><h3>Lei Joelma uten mannskap</h3><p>Vil dere dra på egen hånd? Ta en prat med Bjørne om erfaring, seilingsområde og hva som følger med leien.</p></div>
+            </article>
           </div>
-          <div className="way-row">
-            <span className="way-number">B</span>
-            <div><h3>Leie uten mannskap</h3><p>Vil du føre båten selv? Snakk med Bjørne om erfaring, seilingsområde og hva leien innebærer.</p></div>
-            <span className="way-arrow" aria-hidden="true">↗</span>
-          </div>
-          <p className="ways-note">Varighet, avreisehavn og praktiske vilkår avklares før turen.</p>
+          <p className="trip-note">Varighet, avreisehavn og andre praktiske ting avtales før turen.</p>
+          <a className="button button-light" href="#kontakt">Spør om en tur <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
       <footer className="contact" id="kontakt">
-        <div className="wrap contact-inner">
-          <div><p className="overline">KVERNMO HALIBUT · VEST-FINNMARK</p><h2>En tur begynner<br />med et spørsmål.</h2></div>
-          <p className="contact-instruction">Dato, antall personer og om dere ønsker skipper eller egen leie er et fint sted å begynne. Kontaktopplysninger legges inn når de er avklart.</p>
-          <div className="contact-bottom"><span>Uforpliktende konseptutkast</span><a href="#top">Til toppen ↑</a></div>
+        <div className="section-inner contact-layout">
+          <div><p className="section-label">Kvernmo Halibut · Vest-Finnmark</p><h2>Turen starter med en prat.</h2></div>
+          <p>Fortell gjerne når dere vil dra, hvor mange dere er, og om dere ønsker skipper. Kontaktinformasjon settes inn når dette er avklart med Bjørne.</p>
+          <div className="footer-bottom"><span>Uforpliktende konseptutkast</span><a href="#top">Til toppen ↑</a></div>
         </div>
       </footer>
     </main>
