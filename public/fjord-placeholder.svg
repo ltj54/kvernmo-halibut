@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrert fjordlandskap</title>
+  <desc id="desc">Stilisert fjordlandskap som markerer plass for kundens egne fotografier.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#9ab6bd"/><stop offset="1" stop-color="#d7d3bd"/></linearGradient>
+    <linearGradient id="sea" x2="0" y2="1"><stop stop-color="#426a74"/><stop offset="1" stop-color="#173f4c"/></linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <path d="M0 460 190 184 330 410 500 214 704 470 883 225 1200 540V900H0Z" fill="#667f80"/>
+  <path d="M0 525 178 322 317 505 578 298 790 546 1017 310 1200 537V900H0Z" fill="#315766"/>
+  <path d="M0 565c252-26 409-16 602 5 209 23 410-28 598-7v337H0Z" fill="url(#sea)"/>
+  <path d="M0 638c273-30 471 17 666 8 194-9 354-40 534-21M0 718c243-20 384 12 610 6 230-6 382-20 590-11" fill="none" stroke="#82a8a8" stroke-width="5" opacity=".35"/>
+  <path d="M557 590h241l-51 40H590Z" fill="#102f3b"/>
+  <path d="M675 590V399l112 188Z" fill="#f0e8d5" opacity=".92"/>
+  <path d="M669 590V444l-71 141Z" fill="#d9e0d9" opacity=".9"/>
+  <circle cx="908" cy="168" r="56" fill="#eee2bf" opacity=".8"/>
+</svg>
