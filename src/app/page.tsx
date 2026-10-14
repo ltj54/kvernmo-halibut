@@ -1,4 +1,7 @@
 import Image from "next/image";
+import InquiryDialog from "./inquiry-dialog";
+import BoatInfo from "./boat-info";
+import PhotoLightbox from "./photo-lightbox";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -22,7 +25,7 @@ export default function Home() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-copy">
           <p className="location-label"><span aria-hidden="true">●</span> Vest-Finnmark</p>
-          <h1 id="hero-title">Har du lyst på en tur på fjorden?</h1>
+          <h1 id="hero-title">Altafjorden med Joelma</h1>
           <p>Bjørne leier ut Joelma, en Nauticat 525 med ni køyeplasser. Bli med ham som skipper, eller lei båten uten mannskap etter avtale.</p>
           <div className="hero-links">
             <a className="button button-dark" href="#joelma">Møt Joelma</a>
@@ -31,7 +34,9 @@ export default function Home() {
           <p className="hero-aside">Hval, spekkhogger og nordlys kan dukke opp. Det er naturen som bestemmer.</p>
         </div>
         <figure className="hero-photo">
-          <Image src={`${basePath}/images/joelma-seilas.webp`} alt="Utsikten fra dekket på Joelma under seilas" fill priority sizes="(max-width: 760px) 100vw, 58vw" />
+          <PhotoLightbox src={`${basePath}/images/joelma-seilas.webp`} alt="Utsikten fra dekket på Joelma under seilas">
+            <Image src={`${basePath}/images/joelma-seilas.webp`} alt="" fill priority sizes="(max-width: 760px) 100vw, 58vw" />
+          </PhotoLightbox>
           <figcaption>Ute på sjøen med Joelma</figcaption>
         </figure>
       </section>
@@ -39,12 +44,14 @@ export default function Home() {
       <section className="boat-section" id="joelma" aria-labelledby="boat-title">
         <div className="section-inner boat-layout">
           <figure className="boat-photo">
-            <Image src={`${basePath}/images/joelma-korsfjord.webp`} alt="Joelma i Korsfjord" fill sizes="(max-width: 760px) 100vw, 52vw" />
+            <PhotoLightbox src={`${basePath}/images/joelma-korsfjord.webp`} alt="Joelma i Korsfjord">
+              <Image src={`${basePath}/images/joelma-korsfjord.webp`} alt="" fill sizes="(max-width: 760px) 100vw, 52vw" />
+            </PhotoLightbox>
             <figcaption>Joelma i Korsfjord</figcaption>
           </figure>
           <div className="boat-copy">
             <p className="section-label">Båten</p>
-            <h2 id="boat-title">Dette er Joelma</h2>
+            <div className="boat-title-row"><h2 id="boat-title">Dette er Joelma</h2><BoatInfo /></div>
             <p>Joelma er en Nauticat 525 motorseiler. Det er god plass om bord, enten du vil på tur med Bjørne eller ønsker å leie båten på egen hånd. Bjørne kjenner både båten og fjordene her nord.</p>
             <dl className="boat-details">
               <div><dt>Båttype</dt><dd>Motorseiler</dd></div>
@@ -65,16 +72,26 @@ export default function Home() {
         <div className="section-inner fjord-layout">
           <div className="fjord-copy">
             <p className="section-label">Rundt Altafjorden og Årøya</p>
-            <h2 id="fjord-title">Bjørne kjenner fjordene</h2>
+            <h2 id="fjord-title">Fjorder og sund rundt Altafjorden</h2>
             <p>Langfjord, Stjernsund, Rognsund og Vargsund – dette er noen av farvannene Bjørne kjenner. Her finnes det sild, og i sesong kan man også være heldig å se hval eller spekkhogger.</p>
             <p className="plain-note">Hvor turen går, kommer an på vær, forhold og hva dere har lyst til. Dyreliv kan ikke loves.</p>
           </div>
-          <figure className="chart-photo">
-            <Image src={`${basePath}/images/altafjord-kart.webp`} alt="Sjøkart over Altafjorden og sundene rundt Årøya" fill sizes="(max-width: 760px) 100vw, 55vw" />
-            <figcaption>Kart over Altafjorden, sendt av Bjørne</figcaption>
-          </figure>
-          <div className="straits" aria-label="Sund i området">
-            <span>Langfjord</span><span>Stjernsund</span><span>Rognsund</span><span>Vargsund</span>
+          <div className="chart-map">
+            <figure className="chart-photo">
+              <PhotoLightbox src={`${basePath}/images/altafjord-kart.webp`} alt="Sjøkart over Altafjorden og sundene rundt Årøya">
+                <Image src={`${basePath}/images/altafjord-kart.webp`} alt="" fill sizes="(max-width: 760px) 100vw, 55vw" />
+              </PhotoLightbox>
+              <figcaption>Kart over Altafjorden, sendt av Bjørne</figcaption>
+            </figure>
+            <a className="maps-link" href="https://www.google.com/maps/search/?api=1&query=Altafjorden%2C%20Norway" target="_blank" rel="noreferrer">
+              Se Altafjorden i Google Maps <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div className="straits" aria-label="Fjord og sund i området">
+            <a href="https://www.google.com/maps/search/?api=1&query=Langfjorden%2C%20Finnmark%2C%20Norway" target="_blank" rel="noreferrer">Langfjord <span aria-hidden="true">↗</span></a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Stjernsundet%2C%20Finnmark%2C%20Norway" target="_blank" rel="noreferrer">Stjernsund <span aria-hidden="true">↗</span></a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Rognsundet%2C%20Finnmark%2C%20Norway" target="_blank" rel="noreferrer">Rognsund <span aria-hidden="true">↗</span></a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Vargsundet%2C%20Finnmark%2C%20Norway" target="_blank" rel="noreferrer">Vargsund <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
@@ -87,15 +104,21 @@ export default function Home() {
           </div>
           <div className="inside-gallery">
             <figure className="inside-room">
-              <Image src={`${basePath}/images/joelma-oppholdsrom.webp`} alt="Oppholdsrommet om bord på Joelma" fill sizes="(max-width: 760px) 100vw, 46vw" />
+              <PhotoLightbox src={`${basePath}/images/joelma-oppholdsrom.webp`} alt="Oppholdsrommet om bord på Joelma">
+                <Image src={`${basePath}/images/joelma-oppholdsrom.webp`} alt="" fill sizes="(max-width: 760px) 100vw, 46vw" />
+              </PhotoLightbox>
               <figcaption>Oppholdsrom</figcaption>
             </figure>
             <figure>
-              <Image src={`${basePath}/images/joelma-bysse.webp`} alt="Byssa om bord på Joelma" fill sizes="(max-width: 760px) 100vw, 27vw" />
+              <PhotoLightbox src={`${basePath}/images/joelma-bysse.webp`} alt="Byssa om bord på Joelma">
+                <Image src={`${basePath}/images/joelma-bysse.webp`} alt="" fill sizes="(max-width: 760px) 100vw, 27vw" />
+              </PhotoLightbox>
               <figcaption>Bysse</figcaption>
             </figure>
             <figure>
-              <Image src={`${basePath}/images/joelma-hardtop.webp`} alt="Styreplassen under hardtoppen på Joelma" fill sizes="(max-width: 760px) 100vw, 27vw" />
+              <PhotoLightbox src={`${basePath}/images/joelma-hardtop.webp`} alt="Styreplassen under hardtoppen på Joelma">
+                <Image src={`${basePath}/images/joelma-hardtop.webp`} alt="" fill sizes="(max-width: 760px) 100vw, 27vw" />
+              </PhotoLightbox>
               <figcaption>Styreplass under hardtop</figcaption>
             </figure>
           </div>
@@ -105,7 +128,7 @@ export default function Home() {
       <section className="trips-section" id="turer" aria-labelledby="trips-title">
         <div className="section-inner">
           <p className="section-label">To måter å dra på</p>
-          <h2 id="trips-title">Hva passer for dere?</h2>
+          <h2 id="trips-title">Med skipper eller uten mannskap</h2>
           <div className="trip-options">
             <article>
               <span className="option-mark" aria-hidden="true">☺</span>
@@ -117,15 +140,15 @@ export default function Home() {
             </article>
           </div>
           <p className="trip-note">Varighet, avreisehavn og andre praktiske ting avtales før turen.</p>
-          <a className="button button-light" href="#kontakt">Spør om en tur <span aria-hidden="true">→</span></a>
+          <InquiryDialog />
         </div>
       </section>
 
       <footer className="contact" id="kontakt">
         <div className="section-inner contact-layout">
-          <div><p className="section-label">Kvernmo Halibut · Vest-Finnmark</p><h2>Turen starter med en prat.</h2></div>
+          <div><p className="section-label">Kvernmo Halibut · Vest-Finnmark</p><h2>Ta en prat med Bjørne om turen.</h2></div>
           <p>Fortell gjerne når dere vil dra, hvor mange dere er, og om dere ønsker skipper. Kontaktinformasjon settes inn når dette er avklart med Bjørne.</p>
-          <div className="footer-bottom"><span>Uforpliktende konseptutkast</span><a href="#top">Til toppen ↑</a></div>
+          <div className="footer-bottom"><span>Uforpliktende konseptutkast</span><span>Kvernmo Halibut · Org.nr. 838 632 122</span><a href="#top">Til toppen ↑</a></div>
         </div>
       </footer>
     </main>
