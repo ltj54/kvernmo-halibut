@@ -35,7 +35,7 @@ export default function Home() {
         </div>
         <figure className="hero-photo">
           <PhotoLightbox src={`${basePath}/images/joelma-seilas.webp`} alt="Utsikten fra dekket på Joelma under seilas">
-            <Image src={`${basePath}/images/joelma-seilas.webp`} alt="" fill priority sizes="(max-width: 760px) 100vw, 58vw" />
+            <Image src={`${basePath}/images/joelma-seilas.webp`} alt="" fill priority loading="eager" sizes="(max-width: 760px) 100vw, 58vw" />
           </PhotoLightbox>
           <figcaption>Ute på sjøen med Joelma</figcaption>
         </figure>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, type ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 
 type PhotoLightboxProps = Readonly<{
   src: string;
@@ -11,6 +11,12 @@ type PhotoLightboxProps = Readonly<{
 
 export default function PhotoLightbox({ src, alt, children }: PhotoLightboxProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const [hasOpened, setHasOpened] = useState(false);
+
+  function openViewer() {
+    setHasOpened(true);
+    dialogRef.current?.showModal();
+  }
 
   return (
     <>
@@ -18,7 +24,7 @@ export default function PhotoLightbox({ src, alt, children }: PhotoLightboxProps
         className="photo-open"
         type="button"
         aria-label={`Vis større bilde: ${alt}`}
-        onClick={() => dialogRef.current?.showModal()}
+        onClick={openViewer}
       >
         {children}
       </button>
@@ -31,7 +37,7 @@ export default function PhotoLightbox({ src, alt, children }: PhotoLightboxProps
         >
           ×
         </button>
-        <Image src={src} alt={alt} fill sizes="96vw" className="photo-viewer-image" />
+        {hasOpened && <Image src={src} alt={alt} fill sizes="96vw" loading="eager" className="photo-viewer-image" />}
       </dialog>
     </>
   );
