@@ -1,9 +1,9 @@
 import Image from "next/image";
-import InquiryDialog from "../../inquiry-dialog";
 import BoatInfo from "../../boat-info";
 import PhotoLightbox from "../../photo-lightbox";
 import { formattedOrganizationNumber } from "../../business-details";
 import { mapLinks } from "../../map-links";
+import TripContact from "../../trip-contact";
 
 const basePath = process.env.GITHUB_PAGES === "true" ? "/kvernmo-halibut" : "";
 const anchors = { top: "#top", boat: "#joelma", fjord: "#fjorden", trips: "#turer" };
@@ -66,12 +66,19 @@ export default function EnglishHome() {
               <div><dt>Boat type</dt><dd>Motor sailer</dd></div>
               <div><dt>Model</dt><dd>Nauticat 525</dd></div>
               <div><dt>Berths</dt><dd>9</dd></div>
+              <div><dt>Recommended group size</dt><dd>5–6 guests</dd></div>
+              <div><dt>Planned departure harbour</dt><dd>Bukta, Alta</dd></div>
               <div><dt>Rental</dt><dd>With or without skipper</dd></div>
             </dl>
             <div className="price-box">
-              <span>Indicative 24-hour rate</span>
+              <span>Indicative 24-hour rate with skipper</span>
               <strong>Just under NOK 10,000</strong>
-              <small>The price depends in part on group size. Bjørne will confirm the final price.</small>
+              <ul className="price-includes" aria-label="Included in the 24-hour rate">
+                <li>Skipper and fuel</li>
+                <li>Three meals per day</li>
+                <li>Bed linen</li>
+              </ul>
+              <small>A cook is included by arrangement when needed. This rate is for the boat with a skipper and depends in part on group size. Bjørne will confirm the final price. The price and terms for uncrewed rental are agreed separately.</small>
             </div>
           </div>
         </div>
@@ -136,20 +143,18 @@ export default function EnglishHome() {
 
       <section className="trips-section" id="turer" aria-labelledby="trips-title">
         <div className="section-inner">
-          <p className="section-label">Two ways to go</p>
           <h2 id="trips-title">With a skipper or on your own</h2>
+          <p className="season-note">New trips are planned from around <time dateTime="2026-11-20">20 November 2026</time>. Contact Bjørne to agree on dates and trip length.</p>
           <div className="trip-options">
             <article>
-              <span className="option-mark" aria-hidden="true">☺</span>
               <div><h3>A trip with Bjørne as skipper</h3><p>Bjørne takes the helm and shows you the waters. You can plan the route together, depending on the weather and what you would like to see.</p></div>
             </article>
             <article>
-              <span className="option-mark" aria-hidden="true">⌁</span>
               <div><h3>Rent Joelma without crew</h3><p>Prefer to go on your own? Talk to Bjørne about experience, sailing area and what is included in the rental.</p></div>
             </article>
           </div>
-          <p className="trip-note">Trip length, departure harbour, group size and what the price includes are agreed in advance.</p>
-          <InquiryDialog language="en" />
+          <p className="trip-note">Joelma is best suited to a group of 5–6 guests. Trip length and practical arrangements are agreed with Bjørne.</p>
+          <TripContact language="en" />
         </div>
       </section>
 
@@ -165,7 +170,8 @@ export default function EnglishHome() {
           </div>
           <div className="travel-details">
             <h3>From the airport to the boat</h3>
-            <p>Confirm the departure harbour and meeting point with Bjørne before arranging your onward transport from the airport.</p>
+            <p>Trips are planned to depart from Bukta in Alta, a few hundred metres from the airport. Bjørne meets guests at Alta Airport with a name sign and drives them to the boat. Arrange your arrival and pickup in advance.</p>
+            <p className="travel-note">Joelma is currently in Korsfjord, a side fjord of Altafjord, and will move to Bukta before the trips.</p>
             <h3>Before booking your travel</h3>
             <p>Agree on dates, trip length and options first. Tell Bjørne whether you are interested in a day trip or a longer sailing trip, and whether whales, orcas or sailing itself are your main interest.</p>
             <p className="travel-note">Plans depend on the season, weather and conditions on the fjord. Wildlife and northern lights sightings cannot be guaranteed.</p>
@@ -173,10 +179,8 @@ export default function EnglishHome() {
         </div>
       </section>
 
-      <footer className="contact" id="kontakt">
-        <div className="section-inner contact-layout">
-          <div><p className="section-label">Kvernmo Halibut · Western Finnmark</p><h2>Talk to Bjørne about a trip.</h2></div>
-          <p>Tell him when you hope to travel, how many people are coming and whether you would like a skipper. The contact method is being finalized with Bjørne.</p>
+      <footer className="site-footer">
+        <div className="section-inner">
           <div className="footer-bottom"><span>Non-binding concept preview</span><span>Kvernmo Halibut · Org. no. {formattedOrganizationNumber}</span><a href={anchors.top}>Back to top ↑</a></div>
         </div>
       </footer>

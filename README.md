@@ -1,14 +1,15 @@
 # Kvernmo Halibut – nettsideutkast
 
-Selvstendig, statisk Next.js-prosjekt for Kvernmo Halibut. Bjørne har sett og gitt positiv tilbakemelding på konseptet. Siden er fortsatt merket som et ikke-bindende konseptutkast: den inneholder ingen aktiv booking, betaling eller innsending av forespørsler. Den engelske siden ligger på `/en/`.
+Selvstendig, statisk Next.js-prosjekt for Kvernmo Halibut. Bjørne har sett og gitt positiv tilbakemelding på konseptet. Siden er fortsatt merket som et ikke-bindende konseptutkast. Den inneholder ingen booking eller betaling. Den engelske siden ligger på `/en/`.
 
 ## Før et domene kobles til
 
 - Velg domenet sammen med Bjørne. `fjordhavsel.no` kan vurderes siden han allerede betaler for det; domenet er ikke koblet til her.
-- Avklar hvilken e-postadresse eller hvilket telefonnummer som skal stå offentlig. Forespørselsdialogen er bare en demonstrasjon og sender ingenting.
+- Offentlig e-postadresse og telefon er bekreftet av Bjørne og samlet i `src/app/business-details.ts`. Turvalg og kontakt er samlet i samme seksjon. Begge turtyper bruker én dialog og samme mottakeradresse. Dialogen sender JSON direkte til FormSubmit over HTTPS; besøkeren trenger ikke e-postprogram. FormSubmit må aktiveres fra mottakerens e-post før leveransen kan regnes som ferdig oppsatt.
 - Organisasjonsnummeret er 938 584 346, kontrollert hos Brønnøysundregistrene 15.10.2026 og samlet i `src/app/business-details.ts`.
-- Bekreft endelig prisformulering, avreisehavn, leievilkår og nøyaktig informasjon om vinterisolert overbygg/oppvarming.
-- Bekreft oppmøtested, transport fra flyplassen, når turer kan tilbys, antall gjester per tur og hva døgnprisen inkluderer. Ni køyeplasser er ikke en bekreftelse på gjestekapasitet på tur. Siden viser generell reiseinformasjon og lenker til Avinor; den oppgir ingen bestemt flytid eller hentetjeneste.
+- Bjørne har oppgitt planlagt start for nye turer fra cirka 20. november 2026, planlagt avreise fra Bukta og henting på Alta lufthavn. Bekreft endelig oppstart, kaiplass og eventuelle vilkår for transporten før ferdig lansering.
+- Døgnprisen er fortsatt veiledende og gjelder båten med skipper. Den inkluderer skipper, drivstoff, tre måltider per dag og sengetøy, samt eventuell kokk etter avtale. Turvarighet, endelig pris og vilkår for leie uten mannskap gjenstår.
+- Anbefalt gruppestørrelse er 5–6 gjester; dette er ikke en opplysning om maksimal passasjerkapasitet. Ni køyeplasser vises separat. Reiseavsnittet lenker til Avinor og oppgir ingen bestemt flytid.
 - Søk om relevante oppføringer hos reiselivsaktører/portaler og avklar deres vilkår før noen booking- eller provisjonsforpliktelse.
 - Koble først deretter domenet, slå på indeksering og verifiser eierskap i Google Search Console.
 
@@ -25,7 +26,17 @@ npm ci
 npm run dev
 ```
 
-Åpne `http://127.0.0.1:3000`. `npm run lint`, `npm run typecheck` og `npm run build` kontrollerer prosjektet. Bygget eksporteres statisk til `out/`.
+Åpne `http://127.0.0.1:3000`. `npm run lint`, `npm run typecheck`, `npm test` og `npm run build` kontrollerer prosjektet. Innsendingstestene bruker simulerte nettverkskall og sender ingen e-poster. Bygget eksporteres statisk til `out/`.
+
+## Innsending av forespørsler
+
+- Leverandør: [FormSubmit](https://formsubmit.co/documentation), AJAX-endepunkt bygget fra den bekreftede offentlige mottakeradressen. Ingen API-nøkkel eller hemmelighet legges i nettleserkoden.
+- Første reelle innsending kan utløse en aktiveringsmail til Bjørne. Han må bekrefte mottakeradressen. Sjekk også søppelpost. En senere test må bekreftes mottatt i innboksen før siden omtales som ferdig testet for e-postlevering.
+- Dialogen beholder opplysningene ved feil og viser bare bekreftelse når tjenesten bekrefter mottak. Aktiveringssvar vises separat. Bekreftet mottak hos tjenesten er ikke bevis på at e-posten er levert i innboksen.
+- Tidsavbrudd etter 20 sekunder, sperre mot doble innsendinger, lengdebegrensninger og et skjult honeypot-felt er lagt inn. Leverandørens standard spambeskyttelse er ikke deaktivert. Overvåk søppelpost og misbruk etter lansering.
+- Avsenderens adresse brukes som Reply-To. Ingen automatisk svarmail eller kopi til andre mottakere er aktivert.
+- Personverninformasjon ligger i dialogen. FormSubmit oppgir [30 dagers lagring](https://formsubmit.co/documentation) av innsendinger; se [leverandørens personvernerklæring](https://formsubmit.co/privacy.pdf). Skjemadata lagres ikke i prosjektet eller nettleserlagring.
+- Direkte e-post- og telefonlenker er tilgjengelige dersom tjenesten feiler.
 
 ## Struktur
 

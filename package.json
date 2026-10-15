@@ -6,6 +6,7 @@
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
     "lint": "eslint .",
+    "test": "node --experimental-strip-types --test scripts/inquiry-submit.test.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

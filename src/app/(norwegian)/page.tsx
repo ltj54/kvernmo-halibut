@@ -1,9 +1,9 @@
 import Image from "next/image";
-import InquiryDialog from "../inquiry-dialog";
 import BoatInfo from "../boat-info";
 import PhotoLightbox from "../photo-lightbox";
 import { formattedOrganizationNumber } from "../business-details";
 import { mapLinks } from "../map-links";
+import TripContact from "../trip-contact";
 
 const basePath = process.env.GITHUB_PAGES === "true" ? "/kvernmo-halibut" : "";
 const anchors = { top: "#top", boat: "#joelma", fjord: "#fjorden", trips: "#turer" };
@@ -66,12 +66,19 @@ export default function Home() {
               <div><dt>Båttype</dt><dd>Motorseiler</dd></div>
               <div><dt>Modell</dt><dd>Nauticat 525</dd></div>
               <div><dt>Køyeplasser</dt><dd>9</dd></div>
+              <div><dt>Anbefalt gruppestørrelse</dt><dd>5–6 gjester</dd></div>
+              <div><dt>Planlagt avreisehavn</dt><dd>Bukta, Alta</dd></div>
               <div><dt>Leie</dt><dd>Med eller uten skipper</dd></div>
             </dl>
             <div className="price-box">
-              <span>Veiledende døgnpris</span>
+              <span>Veiledende døgnpris med skipper</span>
               <strong>I underkant av 10&nbsp;000 kr</strong>
-              <small>Prisen avhenger blant annet av hvor mange dere er. Endelig pris avtales med Bjørne.</small>
+              <ul className="price-includes" aria-label="Inkludert i døgnprisen">
+                <li>Skipper og drivstoff</li>
+                <li>Tre måltider per dag</li>
+                <li>Sengetøy</li>
+              </ul>
+              <small>Eventuell kokk inngår etter avtale. Prisen gjelder båten med skipper og avhenger blant annet av gruppestørrelse. Endelig pris avtales med Bjørne. Pris og vilkår for leie uten mannskap avtales separat.</small>
             </div>
           </div>
         </div>
@@ -136,20 +143,18 @@ export default function Home() {
 
       <section className="trips-section" id="turer" aria-labelledby="trips-title">
         <div className="section-inner">
-          <p className="section-label">To måter å dra på</p>
           <h2 id="trips-title">Med skipper eller uten mannskap</h2>
+          <p className="season-note">Planlagt oppstart for nye turer: fra ca. <time dateTime="2026-11-20">20. november 2026</time>. Ta kontakt for å avtale dato og varighet.</p>
           <div className="trip-options">
             <article>
-              <span className="option-mark" aria-hidden="true">☺</span>
               <div><h3>Tur med Bjørne som skipper</h3><p>Bjørne tar roret og viser dere farvannet. Sammen finner dere ut hvor turen skal gå, ut fra vær og ønsker.</p></div>
             </article>
             <article>
-              <span className="option-mark" aria-hidden="true">⌁</span>
               <div><h3>Lei Joelma uten mannskap</h3><p>Vil dere dra på egen hånd? Ta en prat med Bjørne om erfaring, seilingsområde og hva som følger med leien.</p></div>
             </article>
           </div>
-          <p className="trip-note">Varighet, avreisehavn, antall gjester og hva som inngår i prisen avtales før turen.</p>
-          <InquiryDialog />
+          <p className="trip-note">Joelma passer best for en gruppe på 5–6 gjester. Turens lengde og det praktiske opplegget avtales med Bjørne.</p>
+          <TripContact />
         </div>
       </section>
 
@@ -165,7 +170,8 @@ export default function Home() {
           </div>
           <div className="travel-details">
             <h3>Fra flyplassen til båten</h3>
-            <p>Avklar avreisehavn og oppmøtested med Bjørne før du planlegger transporten videre fra flyplassen.</p>
+            <p>For turene planlegges avreise fra Bukta i Alta, noen hundre meter fra flyplassen. Bjørne møter gjestene på Alta lufthavn med navneskilt og kjører dem til båten. Avtal ankomst og henting på forhånd.</p>
+            <p className="travel-note">Joelma ligger foreløpig i Korsfjord, en sidefjord til Altafjorden, og skal flyttes til Bukta før turene.</p>
             <h3>Før du bestiller reisen</h3>
             <p>Avtal dato, varighet og turmuligheter først. Fortell gjerne om du ønsker en dagstur eller en lengre seilas, og om det er hval, spekkhogger eller selve seilasen du er mest interessert i.</p>
             <p className="travel-note">Turen planlegges etter sesong, vær og forhold på fjorden. Observasjoner av dyreliv og nordlys kan ikke garanteres.</p>
@@ -173,10 +179,8 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="contact" id="kontakt">
-        <div className="section-inner contact-layout">
-          <div><p className="section-label">Kvernmo Halibut · Vest-Finnmark</p><h2>Ta en prat med Bjørne om turen.</h2></div>
-          <p>Fortell gjerne når dere vil dra, hvor mange dere er, og om dere ønsker skipper. Kontaktinformasjon settes inn når dette er avklart med Bjørne.</p>
+      <footer className="site-footer">
+        <div className="section-inner">
           <div className="footer-bottom"><span>Uforpliktende konseptutkast</span><span>Kvernmo Halibut · Org.nr. {formattedOrganizationNumber}</span><a href={anchors.top}>Til toppen ↑</a></div>
         </div>
       </footer>

@@ -1,6 +1,6 @@
 import { siteUrl } from "./site-config";
 import type { SiteLanguage } from "./site-config";
-import { organizationNumber } from "./business-details";
+import { contactDetails, organizationNumber } from "./business-details";
 
 const escapeJsonLd = (json: string) => json.replaceAll("<", String.raw`\u003c`);
 
@@ -11,6 +11,8 @@ export default function BusinessJsonLd({ language }: Readonly<{ language: SiteLa
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Kvernmo Halibut",
+    email: contactDetails.email,
+    telephone: contactDetails.telephone,
     identifier: {
       "@type": "PropertyValue",
       propertyID: "Norwegian organization number",
