@@ -29,7 +29,7 @@ jobs:
       - run: npm test
       - run: npm run build
         env:
-          GITHUB_PAGES: ${{ vars.GITHUB_PAGES || 'true' }}
+          GITHUB_PAGES: ${{ vars.PAGES_PROJECT_PATH || 'true' }}
           SITE_URL: ${{ vars.SITE_URL }}
           SITE_INDEXABLE: ${{ vars.SITE_INDEXABLE || 'false' }}
           GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}

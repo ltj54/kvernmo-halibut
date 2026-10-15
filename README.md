@@ -15,7 +15,7 @@ Selvstendig, statisk Next.js-prosjekt for Kvernmo Halibut. Bjørne har sett og g
 
 Sitemap, canonical/hreflang, Open Graph, organisasjonsmetadata og `robots.txt` bygges fra miljøvariabler. GitHub-forhåndsvisningen er noindex/disallow som standard. Ikke slå på indeksering før riktig domene er valgt og siden er klar.
 
-For et eget domene settes `SITE_URL` til den kanoniske HTTPS-adressen, `SITE_INDEXABLE=true` og GitHub Actions-variabelen `GITHUB_PAGES=false`. GitHub Actions-variabler `SITE_URL`, `SITE_INDEXABLE` og eventuelt `GOOGLE_SITE_VERIFICATION` gjør byggingen klar når domenet er bestemt. Standardverdien `GITHUB_PAGES=true` beholder dagens forhåndsvisningssti. DNS, HTTPS og et eventuelt `CNAME` må først settes opp for det valgte domenet. `.env.example` viser konfigurasjonsfeltene; faktiske nøkler/verdier skal ikke committes.
+For et eget domene settes GitHub Actions-variabelen `SITE_URL` til den kanoniske HTTPS-adressen og `PAGES_PROJECT_PATH=false`. Arbeidsflyten overfører denne verdien til byggemiljøets `GITHUB_PAGES`; GitHub tillater ikke egendefinerte variabelnavn som starter med `GITHUB_`. Standardverdien `PAGES_PROJECT_PATH=true` beholder forhåndsvisningsstien. Behold `SITE_INDEXABLE=false` under klargjøring og slå først på indeksering når domenet fungerer og innholdet er klart. `GOOGLE_SITE_VERIFICATION` kan legges til ved verifisering i Search Console. Kundedomenet registreres i GitHub Pages-innstillingene før DNS oppdateres. Ved publisering med Actions kreves ingen `CNAME`-fil i repositoryet. `.env.example` viser de lokale konfigurasjonsfeltene; faktiske nøkler/verdier skal ikke committes.
 
 ## Lokal oppstart
 
