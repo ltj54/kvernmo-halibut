@@ -90,7 +90,7 @@ export default function EnglishHome() {
               <PhotoLightbox src={`${basePath}/images/altafjord-kart.webp`} alt="Nautical chart of Altafjord and the sounds around Årøya">
                 <Image src={`${basePath}/images/altafjord-kart.webp`} alt="" fill sizes="(max-width: 760px) 100vw, 55vw" />
               </PhotoLightbox>
-              <figcaption>Chart of Altafjord, supplied by Bjørne</figcaption>
+              <figcaption>Chart of Altafjord</figcaption>
             </figure>
             <a className="maps-link" href={mapLinks.altafjord} target="_blank" rel="noreferrer">
               Find Altafjord on Google Maps <span aria-hidden="true">↗</span>

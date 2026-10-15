@@ -90,7 +90,7 @@ export default function Home() {
               <PhotoLightbox src={`${basePath}/images/altafjord-kart.webp`} alt="Sjøkart over Altafjorden og sundene rundt Årøya">
                 <Image src={`${basePath}/images/altafjord-kart.webp`} alt="" fill sizes="(max-width: 760px) 100vw, 55vw" />
               </PhotoLightbox>
-              <figcaption>Kart over Altafjorden, sendt av Bjørne</figcaption>
+              <figcaption>Kart over Altafjorden</figcaption>
             </figure>
             <a className="maps-link" href={mapLinks.altafjord} target="_blank" rel="noreferrer">
               Se Altafjorden i Google Maps <span aria-hidden="true">↗</span>

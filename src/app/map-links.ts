@@ -12,9 +12,9 @@ function mapView(latitude: number, longitude: number, zoom: number) {
 }
 
 export const mapLinks = {
-  altafjord: mapView(70.15, 23.15, 8),
-  langfjord: mapView(70.08322, 22.68861, 9),
-  stjernsund: mapView(70.23793, 22.71921, 9),
-  rognsund: mapView(70.31601, 22.99263, 9),
-  vargsund: mapView(70.40446, 23.56352, 9),
+  altafjord: mapView(70.15, 23.15, 9),
+  langfjord: mapView(70.08322, 22.68861, 11),
+  stjernsund: mapView(70.23793, 22.71921, 11),
+  rognsund: mapView(70.31601, 22.99263, 11),
+  vargsund: mapView(70.40446, 23.56352, 11),
 };
