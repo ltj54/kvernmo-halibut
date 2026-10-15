@@ -4,6 +4,7 @@ export type SiteLanguage = "nb" | "en";
 
 export const siteUrl = process.env.SITE_URL?.replace(/\/$/, "");
 export const canIndexSite = Boolean(siteUrl && process.env.SITE_INDEXABLE === "true");
+const basePath = process.env.GITHUB_PAGES === "true" ? "/kvernmo-halibut" : "";
 
 const pageInfo = {
   nb: {
@@ -30,6 +31,7 @@ export function getSiteMetadata(language: SiteLanguage): Metadata {
     ...(siteUrl ? { metadataBase: new URL(`${siteUrl}/`) } : {}),
     title: page.title,
     description: page.description,
+    icons: { icon: { url: `${basePath}/favicon.svg`, type: "image/svg+xml" } },
     ...(canonical && norwegianUrl && englishUrl
       ? {
           alternates: {

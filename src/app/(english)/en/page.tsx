@@ -2,6 +2,8 @@ import Image from "next/image";
 import InquiryDialog from "../../inquiry-dialog";
 import BoatInfo from "../../boat-info";
 import PhotoLightbox from "../../photo-lightbox";
+import { formattedOrganizationNumber } from "../../business-details";
+import { mapLinks } from "../../map-links";
 
 const basePath = process.env.GITHUB_PAGES === "true" ? "/kvernmo-halibut" : "";
 const anchors = { top: "#top", boat: "#joelma", fjord: "#fjorden", trips: "#turer" };
@@ -67,7 +69,7 @@ export default function EnglishHome() {
               <div><dt>Rental</dt><dd>With or without skipper</dd></div>
             </dl>
             <div className="price-box">
-              <span>Indicative day rate</span>
+              <span>Indicative 24-hour rate</span>
               <strong>Just under NOK 10,000</strong>
               <small>The price depends in part on group size. Bjørne will confirm the final price.</small>
             </div>
@@ -90,15 +92,15 @@ export default function EnglishHome() {
               </PhotoLightbox>
               <figcaption>Chart of Altafjord, supplied by Bjørne</figcaption>
             </figure>
-            <a className="maps-link" href="https://www.google.com/maps/search/?api=1&query=Altafjorden%2C%20Norway" target="_blank" rel="noreferrer">
+            <a className="maps-link" href={mapLinks.altafjord} target="_blank" rel="noreferrer">
               Find Altafjord on Google Maps <span aria-hidden="true">↗</span>
             </a>
           </div>
           <div className="straits" aria-label="Fjords and sounds in the area">
-            <a href="https://www.google.com/maps/search/?api=1&query=Langfjorden%2C%20Finnmark%2C%20Norway" target="_blank" rel="noreferrer">Langfjord <span aria-hidden="true">↗</span></a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Stjernsundet%2C%20Finnmark%2C%20Norway" target="_blank" rel="noreferrer">Stjernsund <span aria-hidden="true">↗</span></a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rognsundet%2C%20Finnmark%2C%20Norway" target="_blank" rel="noreferrer">Rognsund <span aria-hidden="true">↗</span></a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Vargsundet%2C%20Finnmark%2C%20Norway" target="_blank" rel="noreferrer">Vargsund <span aria-hidden="true">↗</span></a>
+            <a href={mapLinks.langfjord} target="_blank" rel="noreferrer">Langfjord <span aria-hidden="true">↗</span></a>
+            <a href={mapLinks.stjernsund} target="_blank" rel="noreferrer">Stjernsund <span aria-hidden="true">↗</span></a>
+            <a href={mapLinks.rognsund} target="_blank" rel="noreferrer">Rognsund <span aria-hidden="true">↗</span></a>
+            <a href={mapLinks.vargsund} target="_blank" rel="noreferrer">Vargsund <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
@@ -146,8 +148,28 @@ export default function EnglishHome() {
               <div><h3>Rent Joelma without crew</h3><p>Prefer to go on your own? Talk to Bjørne about experience, sailing area and what is included in the rental.</p></div>
             </article>
           </div>
-          <p className="trip-note">Trip length, departure harbour and practical details are agreed in advance.</p>
+          <p className="trip-note">Trip length, departure harbour, group size and what the price includes are agreed in advance.</p>
           <InquiryDialog language="en" />
+        </div>
+      </section>
+
+      <section className="travel-section" id="reise" aria-labelledby="travel-title">
+        <div className="section-inner travel-layout">
+          <div className="travel-copy">
+            <p className="section-label">Practical information</p>
+            <h2 id="travel-title">Getting to Alta</h2>
+            <p>You can fly directly from Oslo Gardermoen to Alta. Journey times depend on your chosen flight; connecting flights take longer.</p>
+            <div className="travel-links">
+              <a href="https://www.avinor.no/en/airport/alta/" target="_blank" rel="noreferrer">Alta Airport · flight information <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div className="travel-details">
+            <h3>From the airport to the boat</h3>
+            <p>Confirm the departure harbour and meeting point with Bjørne before arranging your onward transport from the airport.</p>
+            <h3>Before booking your travel</h3>
+            <p>Agree on dates, trip length and options first. Tell Bjørne whether you are interested in a day trip or a longer sailing trip, and whether whales, orcas or sailing itself are your main interest.</p>
+            <p className="travel-note">Plans depend on the season, weather and conditions on the fjord. Wildlife and northern lights sightings cannot be guaranteed.</p>
+          </div>
         </div>
       </section>
 
@@ -155,7 +177,7 @@ export default function EnglishHome() {
         <div className="section-inner contact-layout">
           <div><p className="section-label">Kvernmo Halibut · Western Finnmark</p><h2>Talk to Bjørne about a trip.</h2></div>
           <p>Tell him when you hope to travel, how many people are coming and whether you would like a skipper. The contact method is being finalized with Bjørne.</p>
-          <div className="footer-bottom"><span>Non-binding concept preview</span><span>Kvernmo Halibut · Org. no. 838 632 122</span><a href={anchors.top}>Back to top ↑</a></div>
+          <div className="footer-bottom"><span>Non-binding concept preview</span><span>Kvernmo Halibut · Org. no. {formattedOrganizationNumber}</span><a href={anchors.top}>Back to top ↑</a></div>
         </div>
       </footer>
     </main>

@@ -6,7 +6,9 @@ Selvstendig, statisk Next.js-prosjekt for Kvernmo Halibut. Bjørne har sett og g
 
 - Velg domenet sammen med Bjørne. `fjordhavsel.no` kan vurderes siden han allerede betaler for det; domenet er ikke koblet til her.
 - Avklar hvilken e-postadresse eller hvilket telefonnummer som skal stå offentlig. Forespørselsdialogen er bare en demonstrasjon og sender ingenting.
+- Organisasjonsnummeret er 938 584 346, kontrollert hos Brønnøysundregistrene 15.10.2026 og samlet i `src/app/business-details.ts`.
 - Bekreft endelig prisformulering, avreisehavn, leievilkår og nøyaktig informasjon om vinterisolert overbygg/oppvarming.
+- Bekreft oppmøtested, transport fra flyplassen, når turer kan tilbys, antall gjester per tur og hva døgnprisen inkluderer. Ni køyeplasser er ikke en bekreftelse på gjestekapasitet på tur. Siden viser generell reiseinformasjon og lenker til Avinor; den oppgir ingen bestemt flytid eller hentetjeneste.
 - Søk om relevante oppføringer hos reiselivsaktører/portaler og avklar deres vilkår før noen booking- eller provisjonsforpliktelse.
 - Koble først deretter domenet, slå på indeksering og verifiser eierskap i Google Search Console.
 

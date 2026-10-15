@@ -1,5 +1,6 @@
 import { siteUrl } from "./site-config";
 import type { SiteLanguage } from "./site-config";
+import { organizationNumber } from "./business-details";
 
 const escapeJsonLd = (json: string) => json.replaceAll("<", String.raw`\u003c`);
 
@@ -13,7 +14,7 @@ export default function BusinessJsonLd({ language }: Readonly<{ language: SiteLa
     identifier: {
       "@type": "PropertyValue",
       propertyID: "Norwegian organization number",
-      value: "838 632 122",
+      value: organizationNumber,
     },
     url: new URL(language === "en" ? "/en/" : "/", `${siteUrl}/`).toString(),
     description: language === "en"

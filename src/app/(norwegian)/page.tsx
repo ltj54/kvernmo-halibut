@@ -2,6 +2,8 @@ import Image from "next/image";
 import InquiryDialog from "../inquiry-dialog";
 import BoatInfo from "../boat-info";
 import PhotoLightbox from "../photo-lightbox";
+import { formattedOrganizationNumber } from "../business-details";
+import { mapLinks } from "../map-links";
 
 const basePath = process.env.GITHUB_PAGES === "true" ? "/kvernmo-halibut" : "";
 const anchors = { top: "#top", boat: "#joelma", fjord: "#fjorden", trips: "#turer" };
@@ -90,15 +92,15 @@ export default function Home() {
               </PhotoLightbox>
               <figcaption>Kart over Altafjorden, sendt av Bjørne</figcaption>
             </figure>
-            <a className="maps-link" href="https://www.google.com/maps/search/?api=1&query=Altafjorden%2C%20Norway" target="_blank" rel="noreferrer">
+            <a className="maps-link" href={mapLinks.altafjord} target="_blank" rel="noreferrer">
               Se Altafjorden i Google Maps <span aria-hidden="true">↗</span>
             </a>
           </div>
           <div className="straits" aria-label="Fjord og sund i området">
-            <a href="https://www.google.com/maps/search/?api=1&query=Langfjorden%2C%20Finnmark%2C%20Norway" target="_blank" rel="noreferrer">Langfjord <span aria-hidden="true">↗</span></a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Stjernsundet%2C%20Finnmark%2C%20Norway" target="_blank" rel="noreferrer">Stjernsund <span aria-hidden="true">↗</span></a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rognsundet%2C%20Finnmark%2C%20Norway" target="_blank" rel="noreferrer">Rognsund <span aria-hidden="true">↗</span></a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Vargsundet%2C%20Finnmark%2C%20Norway" target="_blank" rel="noreferrer">Vargsund <span aria-hidden="true">↗</span></a>
+            <a href={mapLinks.langfjord} target="_blank" rel="noreferrer">Langfjord <span aria-hidden="true">↗</span></a>
+            <a href={mapLinks.stjernsund} target="_blank" rel="noreferrer">Stjernsund <span aria-hidden="true">↗</span></a>
+            <a href={mapLinks.rognsund} target="_blank" rel="noreferrer">Rognsund <span aria-hidden="true">↗</span></a>
+            <a href={mapLinks.vargsund} target="_blank" rel="noreferrer">Vargsund <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
@@ -146,8 +148,28 @@ export default function Home() {
               <div><h3>Lei Joelma uten mannskap</h3><p>Vil dere dra på egen hånd? Ta en prat med Bjørne om erfaring, seilingsområde og hva som følger med leien.</p></div>
             </article>
           </div>
-          <p className="trip-note">Varighet, avreisehavn og andre praktiske ting avtales før turen.</p>
+          <p className="trip-note">Varighet, avreisehavn, antall gjester og hva som inngår i prisen avtales før turen.</p>
           <InquiryDialog />
+        </div>
+      </section>
+
+      <section className="travel-section" id="reise" aria-labelledby="travel-title">
+        <div className="section-inner travel-layout">
+          <div className="travel-copy">
+            <p className="section-label">Praktisk informasjon</p>
+            <h2 id="travel-title">Reisen til Alta</h2>
+            <p>Du kan fly direkte fra Oslo Gardermoen til Alta. Reisetiden avhenger av avgangen du velger; en forbindelse med mellomlanding tar lengre tid.</p>
+            <div className="travel-links">
+              <a href="https://www.avinor.no/flyplass/alta/" target="_blank" rel="noreferrer">Alta lufthavn · flyinformasjon <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div className="travel-details">
+            <h3>Fra flyplassen til båten</h3>
+            <p>Avklar avreisehavn og oppmøtested med Bjørne før du planlegger transporten videre fra flyplassen.</p>
+            <h3>Før du bestiller reisen</h3>
+            <p>Avtal dato, varighet og turmuligheter først. Fortell gjerne om du ønsker en dagstur eller en lengre seilas, og om det er hval, spekkhogger eller selve seilasen du er mest interessert i.</p>
+            <p className="travel-note">Turen planlegges etter sesong, vær og forhold på fjorden. Observasjoner av dyreliv og nordlys kan ikke garanteres.</p>
+          </div>
         </div>
       </section>
 
@@ -155,7 +177,7 @@ export default function Home() {
         <div className="section-inner contact-layout">
           <div><p className="section-label">Kvernmo Halibut · Vest-Finnmark</p><h2>Ta en prat med Bjørne om turen.</h2></div>
           <p>Fortell gjerne når dere vil dra, hvor mange dere er, og om dere ønsker skipper. Kontaktinformasjon settes inn når dette er avklart med Bjørne.</p>
-          <div className="footer-bottom"><span>Uforpliktende konseptutkast</span><span>Kvernmo Halibut · Org.nr. 838 632 122</span><a href={anchors.top}>Til toppen ↑</a></div>
+          <div className="footer-bottom"><span>Uforpliktende konseptutkast</span><span>Kvernmo Halibut · Org.nr. {formattedOrganizationNumber}</span><a href={anchors.top}>Til toppen ↑</a></div>
         </div>
       </footer>
     </main>
