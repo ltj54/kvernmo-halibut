@@ -81,6 +81,14 @@ export default function Home() {
               <small>Eventuell kokk inngår etter avtale. Prisen gjelder båten med skipper og avhenger blant annet av gruppestørrelse. Endelig pris avtales med Bjørne. Pris og vilkår for leie uten mannskap avtales separat.</small>
             </div>
           </div>
+          <figure className="boat-plan">
+            <div className="boat-plan-image">
+              <PhotoLightbox src={`${basePath}/images/nauticat-525-planlosning.jpg`} alt="Planskisse av innredningen i Nauticat 525, sett ovenfra">
+                <Image src={`${basePath}/images/nauticat-525-planlosning.jpg`} alt="" fill sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 960px) calc(100vw - 64px), 860px" />
+              </PhotoLightbox>
+            </div>
+            <figcaption>Planløsning for Nauticat 525. Innredningen i Joelma kan avvike.</figcaption>
+          </figure>
         </div>
       </section>
 

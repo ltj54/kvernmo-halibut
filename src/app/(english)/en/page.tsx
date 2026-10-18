@@ -81,6 +81,14 @@ export default function EnglishHome() {
               <small>A cook is included by arrangement when needed. This rate is for the boat with a skipper and depends in part on group size. Bjørne will confirm the final price. The price and terms for uncrewed rental are agreed separately.</small>
             </div>
           </div>
+          <figure className="boat-plan">
+            <div className="boat-plan-image">
+              <PhotoLightbox src={`${basePath}/images/nauticat-525-planlosning.jpg`} alt="Overhead interior layout drawing of a Nauticat 525">
+                <Image src={`${basePath}/images/nauticat-525-planlosning.jpg`} alt="" fill sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 960px) calc(100vw - 64px), 860px" />
+              </PhotoLightbox>
+            </div>
+            <figcaption>Nauticat 525 layout. Joelma’s interior may differ.</figcaption>
+          </figure>
         </div>
       </section>
 

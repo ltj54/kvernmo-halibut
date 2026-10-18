@@ -44,9 +44,13 @@ figure{margin:0}
 .hero-photo figcaption,.boat-photo figcaption,.chart-photo figcaption{position:absolute;right:0;bottom:0;left:0;padding:32px 16px 13px;background:linear-gradient(transparent,rgba(22,43,44,.66));color:#fff;font-size:11px}
 .section-inner{width:min(1150px,calc(100% - 64px));margin:0 auto}
 .boat-section{padding:82px 0;background:#fffdf8}
-.boat-layout{display:grid;grid-template-columns:1fr .92fr;gap:7%;align-items:center}
+.boat-layout{display:grid;grid-template-columns:1fr .92fr;column-gap:7%;row-gap:32px;align-items:center}
 .boat-photo{position:relative;min-height:540px;overflow:hidden;border-radius:6px;background:#718984}
 .boat-photo img{object-fit:cover;object-position:center 45%}
+.boat-plan{grid-column:1/-1;width:min(100%,860px);margin:0 auto}
+.boat-plan-image{position:relative;aspect-ratio:1024/416;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff}
+.boat-plan-image img{object-fit:contain}
+.boat-plan figcaption{margin-top:10px;color:var(--muted);font-size:11px;line-height:1.6;text-align:center}
 .boat-copy{padding:12px 0}
 .section-label{margin:0 0 13px;color:var(--orange);font-size:12px;font-weight:700}
 .boat-copy h2,.fjord-copy h2,.inside-heading h2,.trips-section h2{margin:0 0 17px;font-family:'Trebuchet MS',Arial,sans-serif;font-size:clamp(34px,4vw,50px);line-height:1.08;letter-spacing:-.045em}
@@ -156,8 +160,12 @@ figure{margin:0}
 .footer-bottom{grid-column:1/-1;display:flex;justify-content:space-between;padding-top:15px;border-top:1px solid var(--line);color:var(--muted);font-size:10px}
 .footer-bottom a{color:var(--ink)}
 
+@media(min-width:1000px){
+  .boat-layout{width:min(1240px,calc(100% - 64px));grid-template-columns:1.06fr .94fr;column-gap:6%}
+  .boat-photo{min-height:640px}
+}
 @media(max-width:850px){
-  .site-header{min-height:76px;padding-right:24px;padding-left:24px;gap:19px}.site-header nav{gap:16px}.hero{width:calc(100% - 40px);grid-template-columns:.9fr 1.1fr;min-height:460px}.hero-copy{padding:36px 28px 24px}.hero-photo{min-height:460px}.section-inner{width:calc(100% - 48px)}.boat-layout{gap:5%}.boat-photo{min-height:480px}.chart-map{grid-column:2;grid-row:auto}.chart-photo{min-height:360px}.inside-gallery figure{min-height:320px}
+  .site-header{min-height:76px;padding-right:24px;padding-left:24px;gap:19px}.site-header nav{gap:16px}.hero{width:calc(100% - 40px);grid-template-columns:.9fr 1.1fr;min-height:460px}.hero-copy{padding:36px 28px 24px}.hero-photo{min-height:460px}.section-inner{width:calc(100% - 48px)}.boat-layout{column-gap:5%}.boat-photo{min-height:480px}.chart-map{grid-column:2;grid-row:auto}.chart-photo{min-height:360px}.inside-gallery figure{min-height:320px}
 }
 @media(max-width:620px){
   section[id],footer[id],.trip-contact{scroll-margin-top:132px}
