@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   basePath,
   images: { unoptimized: true },
   outputFileTracingRoot: process.cwd(),
+  experimental: {
+    agentUpgrade: "security",
+  },
 };
 
 export default nextConfig;
