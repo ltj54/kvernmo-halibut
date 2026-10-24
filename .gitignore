@@ -4,6 +4,7 @@ out/
 .env*
 !.env.example
 .idea/
+.worktrees/
 *.iml
 *.log
 private/
